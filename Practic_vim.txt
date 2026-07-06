@@ -500,4 +500,9 @@ or <:+help+folding>
 
 
 
+There is more to vim than what we've learned in this file
+I mean a lot more go venture and see what you find
+
+
+
 <gg> go start of file
