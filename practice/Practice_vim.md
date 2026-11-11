@@ -1,15 +1,16 @@
-Vim is modal editor meaning that you can switch
-between different modes to perform commands.
+# Practice Vim
 
-There are 4 main modes:
-NORMAL mode, INSERT mode, VISUAL mode and COMMAND mode.
+Vim is modal editor meaning that you can switch between different modes to perform commands.
 
-The normal mode is the main mode, and where you do
-most of the commands, so when you do some command
-you should always go back to normal mode.
+There are 4 main modes: **NORMAL** mode, **INSERT** mode, **VISUAL** mode and **COMMAND** mode.
+
+The normal mode is the main mode, and where you do most of the commands, so when you do some command you should always go back to normal mode.
 
 In this file we will practice some of vim commands.
+
 Some things to know:
+
+```
                              ^
 these mean arrows: down | up |  left <-  right ->
                         v
@@ -27,59 +28,55 @@ Press what is inside < > to do the commands, now press <j>
                                                         |
                                                         |
                                                         v
+```
 
+## Arrow movement
 
-Arrow movement:
+| Key   | Moves |
+| ----- | ----- |
+| `<h>` | left  |
+| `<j>` | down  |
+| `<k>` | up    |
+| `<l>` | right |
 
-<h> left       <j> down       <k> up       <l> right
+try it follow the arrows:
 
- try it follow the arrows:
-
+```
    -> |    ^ -> |
    ^  v -> |    |
    |            |
    |<-^    |<-^ v
       | |<-v  |<-
       <-v
+```
 
+## Main modes
 
+| Key                       | Action                |
+| ------------------------- | --------------------- |
+| `<ESC>`                   | enter NORMAL mode     |
+| `<CTRL+[>` and `<CTRL+c>` | same as `<ESC>`       |
+| `<i>`                     | enter INSERT mode     |
+| `<v>`                     | enter VISUAL mode     |
+| `<:>`                     | enter COMMAND mode    |
 
+Press `<zz>` and see what it will do
 
+`<zt>` will scroll half page top    `<zb>` will scroll half page bottom
 
-Main modes:
+To undo press `<u>`      `<CTRL+r>` redo
 
-<ESC> enter NORMAL mode            <i> enter INSERT mode       <v> enter VISUAL mode
- v
-<CTRL+[> and <CTRL+c> same as <ESC>
+you can undo and redo multiple times
 
-<:> enter COMMAND mode
+You have a bug in line @@JK@@ press `<@@JK@@+gg>` to go there
 
+## How the exercises work
 
+Follow the commands inside angle brackets (`< >`).
+The upper line is the correct line, don't edit it.
+Practice on the bottom line.
 
-Press <zz> and see what it will do
-
-
-
-<zt> will scroll half page top    <zb> will scroll half page bottom
-
-
-
-
-To undo press <u>      <CTRL+r> redo
-
- you can undo and redo multiple times
-
-
-
-
-You have a bug in line 427 press <427+gg> to go there
-
-
-
-Follow the commands inside angle brackets (< >)
-the upper line is the correct line don't edit it
-practice on the bottom line
-
+```
   ^
 these arrows shows you where you should do the commands meaning:
   v
@@ -93,30 +90,33 @@ commands line      like         some command
 _____________________________________v__________________________________________________
 bottom line    do the command       here
 ________________________________________________________________________________________
+```
 
-
+## INSERT mode
 
 We will go into INSERT mode and back to NORMAL mode using different keys
 
+```
 double_list = lambda lst: [x * 2 for x in lst]
 ----^---------^------------^-----------------------------------------------------------
    <i><ESC>  <i><ESC>     <i>      <I>
 ____v_________v____________v____________________________________________________________
  oube_list = ambda lst: [ * 2 for x in lst]
 ________________________________________________________________________________________
+```
 
-
-
+```
 let evens_squared: Vec<_> = (1..10).filter(|x| x % 2 == 0).map(|x| x.pow(2)).collect();
 -------------^-------------------^-------------------------------------------------------
             <a><ESC>            <a>- <A>                                            <ESC>
 _____________v___________________v____________________________________________________v__
 let evens_squaed: Vec<_> = (1..10.filter(|x| x % 2 == 0).map(|x| x.pow(2)).collect()
 _________________________________________________________________________________________
-
-
+```
 
 I'll explain marks later now just do the command once
+
+```
 <m+a> to mark this line
   v
 “That which does not kill us makes us stronger.” — Friedrich Nietzsche
@@ -125,11 +125,15 @@ I'll explain marks later now just do the command once
 _____________v______________________v____________________________________________________
 “That which dos not kill us makes usstronger.” — Friedrich Nietzsche
 _________________________________________________________________________________________
+```
 
-
+## Counts
 
 Pressing numbers before commands will act as modifiers and will multiply the command
+
 try it:
+
+```
 -----------------------------------------------------------------------------------------
 <5+i+wow +ESC>
 _________________________________________________________________________________________
@@ -138,46 +142,50 @@ ________________________________________________________________________________
 ^
 | from this command we understand that entering INSERT mode and typing than exiting
 | considered as one command
+```
 
+## New lines
 
+`<o>` will insert a new line under current line
 
-<o> will insert a new line under current line
+`<O>` new line above
 
-<O> new line above
 try it:
+
+```
 -----v-----------------------------------------------------------------------------------
 I encourage you to read this article by Jason Fife
 "7 Reasons to Ask More Questions"
 _________________________________________________________________________________________
+```
 
+## Movement
 
-
-
-
-
-Movement:
 we can move by objects or by lines
- movement is vary powerful when combined with operators we will learn that later
 
+movement is vary powerful when combined with operators we will learn that later
 
-<$> go to end of line       <0> go to beginning of line
+- `<$>` go to end of line
+- `<0>` go to beginning of line
 
+to move by words:
+
+```
 to move by words  <w> beginning of next word      <b> beginning of previous word   <e> end of next word
 Big words         <W>    this_is*big,word""       <B>                              <E>
+```
 
+## Search movement
 
+- `<f>` find forward character
+- `<F>` find backward character
+- `<*>` to search same word
+- `<%>` move cursor to matching pairs
+- `</>` search across the file, to cycle between results press `<n>` or `<N>`
 
-Search movement:
+`<m+b>` to mark this line press it once
 
-<f> find forward character      <F> find backward character
-
-<*> to search same word     <%> move cursor to matching pairs
-
-</> search across the file, to cycle between results press <n>or<N>
-
-
-
-
+```
 <m+b> to mark this line press it once
   v
 "If you write shitty code, Vim will just make you write shitty code faster." - Erik Meijer
@@ -186,17 +194,17 @@ Search movement:
 __________________________v________________________________________v_____________________v__
 "If you write shitty code,1Vim will just make you write shitty code@faster." - Erik Meijer
 ____________________________________________________________________________________________
+```
 
-
-
+```
 -----------------------------------------------------------------------------------------
 <w>  <6+w>   <4+w>   <6+e>     <W>       <4+b>     <e>   <v+e>   <8+j>
 _______v_______v_______v________v__________v________v______v_______v_______________
 "There is only one way to avoid criticism: do nothing, say nothing, and be nothing." - Aristotle
 _________________________________________________________________________________________
+```
 
-
-
+```
 -----------------------------------------------------------------------------------------
 <f+&>          <5+j>              <F+@> -<r+SPACE>
 _________________v_________________________v______________________________________________
@@ -216,19 +224,18 @@ _v____________v_________________________________________________________________
 It is my model of reality that determines my happiness or disappointments.”
 - Stefan Zweig, Chess Story 
 _________________________________________________________________________________________
+```
 
-
-
+```
 </+frog+ENTER>- <n>- <N>
 __________________________________________________________________________________________
 “It is better frog either to be silent, or to say things of more frog value than silence.
 Sooner throw a pearl frog at hazard than an idle or useless word; and do not say a little
 in many frog frog words, but a great deal in a few.” — Pythagoras
 _________________________________________________________________________________________
+```
 
-
-
-
+```
              <%>       <%>
 ______________v_________v________________________________________________________________
 const greet = (name) => {
@@ -237,52 +244,48 @@ const greet = (name) => {
 
 console.log(greet("Ali"));
 _________________________________________________________________________________________
-
-
-
+```
 
 Use you imagination:
 
+```
 -----------------------------------------------------------------------------------------
 (I think most of us are drawn to hackable things - there’s probably a
 strong correlation between Vim users, Arduino hackers and Android tinkerers.)
 Alex R. Young
 _________________________________________________________________________________________
+```
 
+## Operators
 
+- `<y>` yank (copy)
+- `<p>` past
+- `<d>` delete
+- `<c>` change
+- `<x>` delete character at cursor
+- `<X>` delete character before cursor
+- `<r>` replace
+- `<R>` continuous replace
+- `<.>` repeat last complete command — keep this one in your mind ;)
 
-
-
-Operators:
-
-<y> yank (copy)      <p> past       <d> delete        <c> change
-
-<x> delete character at cursor    <X> delete character before cursor
-
-<r> replace      <R> continuous replace
-
-<.> repeat last complete command
- ^ keep this one in your mind ;)
-
-
-
+```
 let processed = apply_filter(collection, condition);
 --^--------------------------------------------------------------------------------------
 <y+i+(>- <p>
 __________v_______________________________________________________________________________
 
 _________________________________________________________________________________________
+```
 
-
-
+```
    <x> <*>                             <3+x>                      <X>
 ----v---v--------------------------------v-------------------------v---------------------
 "Whenn you get an idea into your head you iiifind it in everything.."
 - Victor Hugo, The Hunchback of Notre-Dame
 _________________________________________________________________________________________
+```
 
-
-
+```
                    do this command will all 379 numbers
 <f+3>             <R+123+ESC>- </379+ENTER>      <.>- <n>
 --------------------v-----------------------------v--------------------------------------
@@ -298,100 +301,92 @@ ________________________________________________________________________________
 ---------------------------v---------------------v---------------------------------v-----
 msg3 = f"Summary: handled {379} items, produced {379*2} bytes, verified with hash {379}."
 _________________________________________________________________________________________
-
-
-
+```
 
 Try mixing some commands:
 
+```
 -----------------------------------------------------------------------------------------
 "Set thy (heart) upon thy work, but never on its reward.
 Work not for a {reward}, but never cease to do thy work." — Vyasa
 _________________________________________________________________________________________
+```
 
+## Indentation
 
+`[>]` indent    `[<]` dedent
 
+Go inside the `{}` than:
 
-
-
-Indentation:
-
-[>] indent    [<] dedent
-
-Go inside the {} than:
-
+```
 press the > here     this does the same
        v                 v
 <v+i+{+>>               <>+i+{>
 _________________________________________________________________________________________
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
-	if (node == NULL || node->parent == NULL)
-		return (0);
+§if (node == NULL || node->parent == NULL)
+§§return (0);
 
-	if (node->parent->left && node->parent->right)
-	{
-		if (node->parent->left == node)
-			return (node->parent->right);
-		if (node->parent->right == node)
-			return (node->parent->left);
-	}
+§if (node->parent->left && node->parent->right)
+§{
+§§if (node->parent->left == node)
+§§§return (node->parent->right);
+§§if (node->parent->right == node)
+§§§return (node->parent->left);
+§}
 
-	return (0);
+§return (0);
 }
 _________________________________________________________________________________________
-
-
+```
 
 try indenting and dedenting these lines
+
+```
 _________________________________________________________________________________________
 "When you stop expecting people to be perfect, you can like them for who they are."
 - Donald Miller, A Million Miles in a Thousand Years
 _________________________________________________________________________________________
+```
 
+`<V+j>`- `<o>` will jump between edges
 
-
-
-<V+j>- <o> will jump between edges
+```
 _________________________________________________________________________________________
 "Fear is a manipulative emotion that can trick us into living a boring life."
 - Donald Miller, A Million Miles in a Thousand Years
 _________________________________________________________________________________________
-
-
-
+```
 
 This is a nice one:
 
-<'+.> to jump to last change in current buffer
+`<'+.>` to jump to last change in current buffer
 
+## Fun stuff with `g`
 
-
-
-Fun stuff with <g>:
-
-
+```
 <yy>- <4+p>- <V+3+j>- <g+CTRL+a>
 _v_______________________________________________________________________________________
 0.
+```
 
-
-
-
+```
 <g+U+w>                                  <g+u+w>
 --v-------------------------------------------------------------------------------------
 wolfeschlegelsteinhausenbergerdorff      LFA 
+```
 
+`<g+a>` shows ASCII, ocal and hex value
 
-
-<g+a> shows ASCII, ocal and hex value
+```
 v_______________________________________________________________________________________
 01ab.,
+```
 
+`<J>` to join lines
 
-
-
-
+```
 <J> to join lines
                          <8+J>
 ___________________________v____________________________________________________________
@@ -405,111 +400,115 @@ Croissants ingredients ;)  v
                            - Cold milk 
                            - An egg 
 ________________________________________________________________________________________
+```
 
+## Auto complete
 
+when you start typing a word press `<CTRL+n>` will list auto complete words from the same file or from headers or imports
 
+`<CTRL+n>` try it use your imagination
 
-
-Auto complete:
-when you start typing a word press <CTRL+n> will list auto complete words from the same
-file or from headers or imports
-
-<CTRL+n> try it use your imagination
+```
                                    v
 -----------------------------------------------------------------------------------------
 
 
 _________________________________________________________________________________________
+```
 
+JK press `<''>` to go back to line @@BUG@@
 
+## Marks
 
-
-JK press <''> to go back to line 75
-
-
-
-
-Marks:
 is a way to save current line at a certain mark
 
-<m> is mark command use it like this:
-<m+a> to mark current line in mark 'a'
-<m+b> marks current line in mark 'b'
+`<m>` is mark command use it like this:
 
+- `<m+a>` to mark current line in mark 'a'
+- `<m+b>` marks current line in mark 'b'
 
 marks (a-z) are local to files meaning every file has it own (a-z) marks
 
-marks (A-Z) are global meaning you can set (A) on one file only and if
-you set it in anther file it will be deleted from the first file
+marks (A-Z) are global meaning you can set (A) on one file only and if you set it in anther file it will be deleted from the first file
 
-
+```
 <m+A> to globally mark this line
   v
 :marks - list all current marks
+```
 
-than press <'+mark letter> to go to the specified mark
+than press `<'+mark letter>` to go to the specified mark
 
+## COMMAND mode
 
+`<:>` enter COMMAND mode
 
-
-<:> enter COMMAND mode
-
-:w - write     :q - quit     :q! - quit without saving 
+| Command | Action               |
+| ------- | -------------------- |
+| `:w`    | write                |
+| `:q`    | quit                 |
+| `:q!`   | quit without saving  |
 
 to open built in file explorer:
+
+```
 :Exp
+```
 
+## Buffers
 
-
-Buffers:
-
-:e fileName
-:ls - to list buffers
-:bn - go to next buffer
-:bd - to close current buffer
+| Command      | Action                |
+| ------------ | --------------------- |
+| `:e fileName`| open a file           |
+| `:ls`        | list buffers          |
+| `:bn`        | go to next buffer     |
+| `:bd`        | close current buffer  |
 
 Now enter this file to and try auto complete in it:
+
+```
 :e gg.py
 ^
 | try some the commands you learned in this file
+```
 
+## Creating panes (split screen)
 
+- `:vs` for vertical split
+- `:sp` for horizontal split
 
-Creating panes (split screen):
-:vs - for vertical split       :sp - for horizontal split
+to move between panes `<CTRL+w+w>`
 
-to move between panes <CTRL+w+w>
+to close a window `<CTRL+w+q>`
 
-to close a window <CTRL+w+q>
+## Configure options
 
-
-
-
-Configure options:
-:set hlsearch - enables highlight search
-:set ruler - show cursor position
-:set number - show line numbers
-:set spell - highlight misspelled words
-:set syntax enable - switches on syntax highlight
+| Option                | Action                            |
+| --------------------- | --------------------------------- |
+| `:set hlsearch`       | enables highlight search          |
+| `:set ruler`          | show cursor position              |
+| `:set number`         | show line numbers                 |
+| `:set spell`          | highlight misspelled words        |
+| `:set syntax enable`  | switches on syntax highlight      |
 
 to revert configurations type (no) before options like:
-:set nonumber
 
+```
+:set nonumber
+```
 
 To configure vim add options to:
+
+```
 .vimrc
+```
 
+`<:+help>` will open the user manual file in a new window
 
-
-<:+help> will open the user manual file in a new window
-you can open a specific help section like <:+help+x>
-or <:+help+folding>
-
-
+you can open a specific help section like `<:+help+x>` or `<:+help+folding>`
 
 There is more to vim than what we've learned in this file
+
 I mean a lot more go venture and see what you find
 
-
-
-<gg> go start of file
+`<gg>` go start of file
